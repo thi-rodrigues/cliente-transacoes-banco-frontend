@@ -1,0 +1,35 @@
+<div class="modal-header titulo-modal">
+  <div class="titulo-texto">
+    <div> Cliente {{ cliente.id }}</div>
+  </div>
+</div>
+<div class="modal-body">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Agência</th>
+        <th scope="col">N° Conta</th>
+        <th scope="col">Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ formatDate(cliente.dtNascimento) }} anos</td>
+        <td>{{ cliente.conta.agencia.numero }}</td>
+        <td>{{ cliente.conta.numero | mask: '999-999' }}</td>
+        <td>{{ cliente.conta.saldo | currency: 'R$ ' }}</td>
+        <td class="ptb-2">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal-footer">
+  <button #focar type="button" class="btn" (click)="activeModal.close()">Fechar</button>
+</div>

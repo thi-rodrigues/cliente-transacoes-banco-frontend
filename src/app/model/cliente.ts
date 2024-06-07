@@ -6,5 +6,5 @@ export class Cliente {
     senha!: string;
     email!: string;
     dtNascimento!: Date;
-    conta!: Conta
+    conta!: Conta;
 }

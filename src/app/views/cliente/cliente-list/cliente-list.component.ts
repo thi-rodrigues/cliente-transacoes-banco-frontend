@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { Cliente } from 'src/app/model/cliente';
 import { ClienteService } from '../../cliente.service';
-import { Router } from '@angular/router';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { ModalVisualizarComponent } from 'src/app/components/modal/modal-visualizar/modal-visualizar.component';
+import { ClienteDepositoComponent } from '../cliente-deposito/cliente-deposito.component';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-list',
@@ -15,13 +18,22 @@ export class ClienteListComponent implements OnInit {
   totalPages: number[] = [];
   pageNumber: number = 0;
   paginaAtual: number = 0;
-  visualizado: boolean = false;
 
-  public comoFechouModal: string = '';
+  @ViewChild(ClienteDepositoComponent, {static: false})
+  deposito!: ClienteDepositoComponent;
+
+  private opcoesModal: NgbModalOptions = {
+      backdrop: true,
+      centered: true,
+      backdropClass: 'backdrop-modal',
+      windowClass: 'position-modal',
+      size: 'xl'
+    };
 
   constructor(
     private clienteService: ClienteService,
-    private router: Router,
+    private modalService: NgbModal,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,8 +44,6 @@ export class ClienteListComponent implements OnInit {
   findAll(page: number) {
     this.clienteService.findAllClientes(page).subscribe(result => {
       this.clientes = result.content;
-      console.log(this.clientes);
-
       for (var i = 0; i < result.totalPages; i++) {
         this.totalPages[i] = i;
       }
@@ -49,12 +59,20 @@ export class ClienteListComponent implements OnInit {
     }
   }
 
-  depositar(id: number) {
+  depositar(agencia: number, numeroConta: number) {
+    this.router.navigate([`/depositar/${agencia}/${numeroConta}`])
+  }
+
+  debitar(id: number, numeroConta: number) {
 
   }
 
-  debitar(id: number) {
-
+  open(cliente: Cliente) {
+    localStorage.setItem('cliente', JSON.stringify(cliente));
+    this.modalService.open(ModalVisualizarComponent, this.opcoesModal).result.then((result) => {
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   formatDate(dtNascimento: Date): number {

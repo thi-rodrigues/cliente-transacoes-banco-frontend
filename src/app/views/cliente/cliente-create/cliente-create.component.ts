@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClienteService } from '../../cliente.service';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/model/cliente';
-import { Conta } from 'src/app/model/conta';
 
 @Component({
   selector: 'app-cliente-create',

@@ -1,4 +1,4 @@
-<table class="table" >
+<table class="table table-hover" >
   <thead>
     <tr>
       <th scope="col">Nome</th>
@@ -9,23 +9,23 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of clientes">
+    <tr *ngFor="let c of clientes" (click)="open(c)">
       <th>{{ c.nome }}</th>
       <th>{{ c.email }}</th>
       <th>{{ formatDate(c.dtNascimento) }} anos</th>
-      <th>{{ c.conta.numero | mask: '999-999'}}</th>
+      <th>{{ c.conta.numero | mask: '999-999' }}</th>
       <th>
-        <button type="button" class="btn btn-success" (click)="depositar(c.id)" title="Realizar Deposito">
-          <i class="fa fa-university"></i>
-        </button>
-        <button type="button" class="btn btn-warning ml-10" (click)="debitar(c.id)" title="Realizar Pagamento">
+          <button type="button" class="btn btn-success" (click)="depositar(c.conta.agencia.numero, c.conta.numero)" title="Realizar Deposito">
+            <i class="fa fa-university fa-lg"></i>
+          </button>
+        <button type="button" class="btn btn-warning ml-10" (click)="debitar(c.id, c.conta.numero)" title="Realizar Pagamento">
           <i class="fa fa-credit-card fa-lg"></i>
         </button>
       </th>
     </tr>
   </tbody>
 </table>
-<nav aria-label="Page navigation example">
+<nav aria-label="">
   <ul class="pagination">
     <li class="page-item">
       <a class="page-link" (click)="page(paginaAtual - 1)" aria-label="Previous">

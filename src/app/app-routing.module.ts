@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClienteCreateComponent } from './views/cliente/cliente-create/cliente-create.component';
 import { ClienteListComponent } from './views/cliente/cliente-list/cliente-list.component';
 import { ClienteDepositoComponent } from './views/cliente/cliente-deposito/cliente-deposito.component';
+import { ClienteDebitoComponent } from './views/cliente/cliente-debito/cliente-debito.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'create',    component: ClienteCreateComponent   },
   { path: 'list',      component: ClienteListComponent     },
   { path: 'depositar/:agencia/:numeroConta', component: ClienteDepositoComponent },
+  { path: 'debitar/:agencia/:numeroConta',   component: ClienteDebitoComponent   },
 ];
 
 @NgModule({

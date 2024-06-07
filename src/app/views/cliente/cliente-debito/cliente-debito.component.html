@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row g-3">
+    <form [formGroup]="clienteForm" (ngSubmit)="depositar()" *ngIf="clienteForm">
+      <div class="col-md-6 mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Cliente: {{ cliente.nome }}</label>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Agência: {{ cliente.conta.agencia.numero | mask: '999-999' }}</label>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Número da Conta: {{ cliente.conta.numero | mask: '999-999' }}</label>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Saldo em Conta: {{ cliente.conta.saldo | currency: 'R$ ' }}</label>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Valor à Debitar:</label>
+        <input currencyMask [options]="{prefix: 'R$', thousands: '.', decimal: ','}" class="form-control" id="conta" formControlName="valor">
+      </div>
+
+      <button type="submit" class="btn btn-success">
+        <i class="fa fa-credit-card fa-lg"></i> Debitar
+      </button>
+
+      <button type="button" class="btn btn-warning m-10" routerLink="/list">
+        <i class="fa fa-arrow-left fa-lg"></i> Voltar
+      </button>
+    </form>
+  </div>
+</div>

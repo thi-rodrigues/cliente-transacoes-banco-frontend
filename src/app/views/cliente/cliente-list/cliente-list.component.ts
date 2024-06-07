@@ -63,8 +63,8 @@ export class ClienteListComponent implements OnInit {
     this.router.navigate([`/depositar/${agencia}/${numeroConta}`])
   }
 
-  debitar(id: number, numeroConta: number) {
-
+  debitar(agencia: number, numeroConta: number) {
+    this.router.navigate([`/debitar/${agencia}/${numeroConta}`])
   }
 
   open(cliente: Cliente) {

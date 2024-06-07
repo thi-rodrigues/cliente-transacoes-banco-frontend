@@ -15,12 +15,12 @@
       <th>{{ formatDate(c.dtNascimento) }} anos</th>
       <th>{{ c.conta.numero | mask: '999-999' }}</th>
       <th>
-          <button type="button" class="btn btn-success" (click)="depositar(c.conta.agencia.numero, c.conta.numero)" title="Realizar Deposito">
-            <i class="fa fa-university fa-lg"></i>
-          </button>
-        <button type="button" class="btn btn-warning ml-10" (click)="debitar(c.id, c.conta.numero)" title="Realizar Pagamento">
+        <button type="button" class="btn btn-warning" (click)="debitar(c.conta.agencia.numero, c.conta.numero)" title="Realizar Pagamento">
           <i class="fa fa-credit-card fa-lg"></i>
         </button>
+          <button type="button" class="btn btn-success ml-10" (click)="depositar(c.conta.agencia.numero, c.conta.numero)" title="Realizar Deposito">
+            <i class="fa fa-university fa-lg"></i>
+          </button>
       </th>
     </tr>
   </tbody>

@@ -19,6 +19,7 @@ import { ClienteDepositoComponent } from './views/cliente/cliente-deposito/clien
 import { ModalVisualizarComponent } from './components/modal/modal-visualizar/modal-visualizar.component';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { ClienteDebitoComponent } from './views/cliente/cliente-debito/cliente-debito.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     ClienteListComponent,
     ClienteDepositoComponent,
     ModalVisualizarComponent,
+    ClienteDebitoComponent,
   ],
   imports: [
     BrowserModule,

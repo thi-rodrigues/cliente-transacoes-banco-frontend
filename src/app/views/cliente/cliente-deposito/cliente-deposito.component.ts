@@ -54,8 +54,7 @@ export class ClienteDepositoComponent implements OnInit {
       }, (error => {
         console.log(error);
       }));
-  }
-
+    }
   }
 
 }

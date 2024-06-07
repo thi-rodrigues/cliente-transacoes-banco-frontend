@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClienteCreateComponent } from './views/cliente/cliente-create/cliente-create.component';
+import { ClienteListComponent } from './views/cliente/cliente-list/cliente-list.component';
 
 const routes: Routes = [
   {
@@ -7,7 +9,8 @@ const routes: Routes = [
     redirectTo: 'create',
     pathMatch: 'full'
   },
-  // { path: 'create',    component: ClienteCreateComponent   },
+  { path: 'create',   component: ClienteCreateComponent   },
+  { path: 'list',     component: ClienteListComponent   },
 ];
 
 @NgModule({

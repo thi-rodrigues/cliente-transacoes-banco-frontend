@@ -34,23 +34,24 @@ export class ClienteCreateComponent implements OnInit {
 
   save() {
     this.alert = false;
+    this.router.navigate(['/list'])
 
-    if (this.clienteForm.valid) {
-      this.cliente = this.clienteForm.value;
-      this.cliente.conta = new Conta(this.clienteForm.value.conta);
+    // if (this.clienteForm.valid) {
+    //   this.cliente = this.clienteForm.value;
+    //   this.cliente.conta = new Conta(this.clienteForm.value.conta);
 
-      this.clienteService.saveCliente(this.cliente).subscribe(result => {
-        console.log(result);
-        this.router.navigate(['/list'])
-      }, (error => {
-        console.log('oie');
-        console.log(error);
-        this.alert = true;
-      }));
-    } else {
-      console.log('oi');
-      this.alert = true;
-    }
+    //   this.clienteService.saveCliente(this.cliente).subscribe(result => {
+    //     console.log(result);
+    //     this.router.navigate(['/list'])
+    //   }, (error => {
+    //     console.log('oie');
+    //     console.log(error);
+    //     this.alert = true;
+    //   }));
+    // } else {
+    //   console.log('oi');
+    //   this.alert = true;
+    // }
   }
 
   close() {

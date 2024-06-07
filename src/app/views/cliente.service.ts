@@ -19,4 +19,9 @@ export class ClienteService {
   saveCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(`${this.baseUrl}/save`, cliente);
   }
+
+  findAllClientes(page: number) {
+    return this.http.get<any>(`${this.baseUrl}/all?page=${page}`);
+  }
+
 }

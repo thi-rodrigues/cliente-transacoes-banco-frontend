@@ -1,6 +1,6 @@
 
 export class Conta {
-  numero?: number;
+  numero!: number;
 
   constructor(conta: number) {
     this.numero = conta;

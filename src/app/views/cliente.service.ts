@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { Cliente } from '../model/cliente';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Transacao } from '../model/transacao';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,14 @@ export class ClienteService {
 
   findAllClientes(page: number) {
     return this.http.get<any>(`${this.baseUrl}/all?page=${page}`);
+  }
+
+  depositar(transacao: Transacao) {
+    return this.http.post<any>(`${this.baseUrl}/depositar`, transacao);
+  }
+
+  debitar(transacao: Transacao) {
+    return this.http.post<any>(`${this.baseUrl}/debitar`, transacao);
   }
 
 }

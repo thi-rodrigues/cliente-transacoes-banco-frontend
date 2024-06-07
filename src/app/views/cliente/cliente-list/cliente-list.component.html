@@ -12,14 +12,14 @@
     <tr *ngFor="let c of clientes">
       <th>{{ c.nome }}</th>
       <th>{{ c.email }}</th>
-      <th>{{ c.dtNascimento | date: 'dd/MM/yyyy HH:mm:ss' }}</th>
-      <th>{{ c.conta?.numero }}</th>
+      <th>{{ formatDate(c.dtNascimento) }} anos</th>
+      <th>{{ c.conta.numero | mask: '999-999'}}</th>
       <th>
-        <button type="button" class="btn btn-info" (click)="depositar(c.id)" title="Realizar Deposito">
-          <i class="fa fa-pencil"></i>
+        <button type="button" class="btn btn-success" (click)="depositar(c.id)" title="Realizar Deposito">
+          <i class="fa fa-university"></i>
         </button>
-        <button type="button" class="btn btn-danger ml-10" (click)="debitar(c.id)" title="Realizar Pagamento">
-          <i class="fa fa-trash"></i>
+        <button type="button" class="btn btn-warning ml-10" (click)="debitar(c.id)" title="Realizar Pagamento">
+          <i class="fa fa-credit-card fa-lg"></i>
         </button>
       </th>
     </tr>

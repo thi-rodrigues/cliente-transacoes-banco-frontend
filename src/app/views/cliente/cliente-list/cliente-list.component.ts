@@ -29,19 +29,10 @@ export class ClienteListComponent implements OnInit {
     this.findAll(this.pageNumber);
   }
 
-  depositar(id: number) {
-
-  }
-
-  debitar(id: number) {
-
-  }
-
   findAll(page: number) {
     this.clienteService.findAllClientes(page).subscribe(result => {
       this.clientes = result.content;
       console.log(this.clientes);
-
 
       for (var i = 0; i < result.totalPages; i++) {
         this.totalPages[i] = i;
@@ -56,6 +47,18 @@ export class ClienteListComponent implements OnInit {
       this.paginaAtual = page;
       this.findAll(page);
     }
+  }
+
+  depositar(id: number) {
+
+  }
+
+  debitar(id: number) {
+
+  }
+
+  formatDate(dtNascimento: Date): number {
+    return new Date().getFullYear() - new Date(dtNascimento).getFullYear();
   }
 
 }

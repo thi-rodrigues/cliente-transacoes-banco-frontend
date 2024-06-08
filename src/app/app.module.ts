@@ -20,6 +20,9 @@ import { ModalVisualizarComponent } from './components/modal/modal-visualizar/mo
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { ClienteDebitoComponent } from './views/cliente/cliente-debito/cliente-debito.component';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { ClienteDebitoComponent } from './views/cliente/cliente-debito/cliente-d
     ClienteDepositoComponent,
     ModalVisualizarComponent,
     ClienteDebitoComponent,
+    HomeComponent,
+    HeaderComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

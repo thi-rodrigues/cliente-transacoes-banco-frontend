@@ -53,7 +53,7 @@ export class ClienteListComponent implements OnInit {
   }
 
   page(page: number) {
-    if (page >= 0) {
+    if (page >= 0 && this.totalPages.length > 1) {
       this.paginaAtual = page;
       this.findAll(page);
     }

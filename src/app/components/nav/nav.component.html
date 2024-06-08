@@ -1,0 +1,41 @@
+<main class="d-flex flex-nowrap">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 170px;">
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" routerLink="/">
+      <svg class="bi pe-none me-2" width="40" height="32">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
+      <span class="fs-4"></span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto hover">
+      <li class="nav-item">
+        <a class="nav-link text-white" aria-current="page" routerLink="/">
+          <svg class="bi pe-none me-2" width="16" height="16">
+            <use xlink:href="#home"></use>
+          </svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a class="nav-link text-white" routerLink="/create">
+          <svg class="bi pe-none me-2" width="16" height="16">
+            <use xlink:href="create"></use>
+          </svg>
+          Cadastrar
+        </a>
+      </li>
+      <li>
+        <a class="nav-link text-white" routerLink="/list">
+          <svg class="bi pe-none me-2" width="16" height="16">
+            <use xlink:href="create"></use>
+          </svg>
+          Listar
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+  <div class="" style="width: 1000px;">
+    <router-outlet></router-outlet>
+  </div>
+</main>

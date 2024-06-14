@@ -5,6 +5,7 @@ import { ClienteListComponent } from './views/cliente/cliente-list/cliente-list.
 import { ClienteDepositoComponent } from './views/cliente/cliente-deposito/cliente-deposito.component';
 import { ClienteDebitoComponent } from './views/cliente/cliente-debito/cliente-debito.component';
 import { HomeComponent } from './components/home/home.component';
+import { ClienteExtratoComponent } from './views/cliente/cliente-extrato/cliente-extrato.component';
 
 const routes: Routes = [
   {
@@ -12,11 +13,12 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  { path: 'home',    component: HomeComponent   },
-  { path: 'create',    component: ClienteCreateComponent   },
-  { path: 'list',      component: ClienteListComponent     },
+  { path: 'home',                            component: HomeComponent            },
+  { path: 'create',                          component: ClienteCreateComponent   },
+  { path: 'list',                            component: ClienteListComponent     },
   { path: 'depositar/:agencia/:numeroConta', component: ClienteDepositoComponent },
   { path: 'debitar/:agencia/:numeroConta',   component: ClienteDebitoComponent   },
+  { path: 'extrato/:id',                     component: ClienteExtratoComponent  },
 ];
 
 @NgModule({

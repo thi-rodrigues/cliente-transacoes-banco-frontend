@@ -67,6 +67,10 @@ export class ClienteListComponent implements OnInit {
     this.router.navigate([`/debitar/${agencia}/${numeroConta}`])
   }
 
+  extrato(id: number) {
+    this.router.navigate([`/extrato/${id}`])
+  }
+
   open(cliente: Cliente) {
     localStorage.setItem('cliente', JSON.stringify(cliente));
     this.modalService.open(ModalVisualizarComponent, this.opcoesModal).result.then((result) => {

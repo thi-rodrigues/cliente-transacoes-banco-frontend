@@ -37,4 +37,8 @@ export class ClienteService {
     return this.http.get<any>(`${this.baseUrl}/buscar?agencia=${agencia}&conta=${numeroConta}`);
   }
 
+  findClienteById(idCliente: number) {
+    return this.http.get<any>(`${this.baseUrl}/${idCliente}`);
+  }
+
 }

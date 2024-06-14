@@ -1,0 +1,55 @@
+<div class="container ml-10 mt-10" style="width: 1000px;">
+  <div class="modal-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Email</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Agência</th>
+          <th scope="col">N° Conta</th>
+          <th scope="col">Saldo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.email }}</td>
+          <td>{{ formatDate(cliente.dtNascimento) }} anos</td>
+          <td>{{ cliente.conta.agencia.numero }}</td>
+          <td>{{ cliente.conta.numero | mask: '999-999' }}</td>
+          <td>{{ cliente.conta.saldo | currency: 'R$ ' }}</td>
+          <td class="ptb-2">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="table table-hover mt-10" *ngIf="transacaoBancaria.length > 0">
+      <div class="mt-70 mb-20">
+        <h3>Extrato</h3>
+      </div>
+      <thead>
+        <tr>
+          <th scope="col">Transacao</th>
+          <th scope="col">Data</th>
+          <th scope="col">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transacao of transacaoBancaria">
+          <th>{{ transacao.tipoTransacao }}</th>
+          <th>{{ transacao.dtTransacao | date: 'dd/MM/yyyy HH:mm:ss' }} </th>
+          <th *ngIf="transacao.tipoTransacao == 'DEPOSITO'" class="deposito">{{ transacao.valor | currency: 'R$ ' }} </th>
+          <th *ngIf="transacao.tipoTransacao == 'DEBITO'" class="debito">{{ transacao.valor | currency: '- R$ ' }} </th>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" class="btn btn-warning m-10" routerLink="/list">
+      <i class="fa fa-arrow-left fa-lg"></i> Voltar
+    </button>
+  </div>
+</div>
+

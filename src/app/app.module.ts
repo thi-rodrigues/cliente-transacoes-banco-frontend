@@ -23,6 +23,7 @@ import { ClienteDebitoComponent } from './views/cliente/cliente-debito/cliente-d
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ClienteExtratoComponent } from './views/cliente/cliente-extrato/cliente-extrato.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NavComponent } from './components/nav/nav.component';
     HomeComponent,
     HeaderComponent,
     NavComponent,
+    ClienteExtratoComponent,
   ],
   imports: [
     BrowserModule,
